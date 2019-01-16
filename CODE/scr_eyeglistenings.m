@@ -1,25 +1,14 @@
 % Script
 %
-%% INIT
-tidy; 
-
-foldername = '/Volumes/DATA/ChrisHULL/DATA/';
-
-fnames = dir(fullfile(foldername,'*.tif')); 
-fnames = {fnames.name};
-fnames(contains(fnames, '._')) = [];
-
-gtnames = fnames(contains(fnames, 'GT'));
-fnames(contains(fnames, 'GT')) = [];
 
 %% LOAD 
 
-idx = 1;
+idx = 2;
 [X, xatt] = readParseInput(fullfile(foldername, fnames{idx}));
 [BB, batt] = readParseInput(fullfile(foldername, gtnames{idx}));
 BB(:,:,4) = [];
 
-GT = getEyeG
+GT = getEyeGroundTruth(BB);
 C2 = imgaussfilt(X(:,:,2));
 
 %% 
@@ -35,6 +24,3 @@ L = bwlabeln(B);
 
 imagesc(B);
 
-%% 
-% Generate grund truth 
-% 
