@@ -11,9 +11,11 @@ cd(fullfile(pwd,'CODE'));
 fnames = dir(fullfile(foldername,'*.tif')); 
 fnames = {fnames.name};
 fnames(contains(fnames, '._')) = [];
-
-gtnames = fnames(contains(fnames, 'GT'));
 fnames(contains(fnames, 'GT')) = [];
+
+gtnames = dir(fullfile(foldername,'*.mat'));
+gtnames = {gtnames.name};
+fnames(contains(fnames, '._')) = [];
 
 fprintf('[INFO] Variables created <fnames> and <gtnames>.\n')
 

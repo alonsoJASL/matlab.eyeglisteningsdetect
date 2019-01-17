@@ -1,9 +1,9 @@
 % Script
 %
 
-%% LOAD 
+%% LOAD AN IMAGE
 
-idx = 2;
+idx = 3;
 [X, xatt] = readParseInput(fullfile(foldername, fnames{idx}));
 [BB, batt] = readParseInput(fullfile(foldername, gtnames{idx}));
 BB(:,:,4) = [];
